@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "photo-gallery-349307",
+  "private_key_id": "584da922e9336105056dab1e3202a1898079624c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC/UXbNRKVwWEAv\nZcsrskfRHuMDYCAnIJIUDKP6f6H83bwiq6AVlApvb6msbM4aM6dPpsb1lVMJsBW8\n13cv66BwSJnOC8tW0mobIWqqB2yXsmTaXKbD91ywKR1V52BRLUS5NXkAZBJYJlim\nbplbnikpw90dkL6gF1gB/FxWruhumRfQI9zTo3Bkhhl3PI0sKkMJkxIymZpzh7di\nd6JX3/qoyofGmeGzhSYFB1+sU1QsueuG2/KdvyhXy5IvibvfJxvsvjeJv1Nz016O\n4DqPZc1QDCfka79+bcUIUEVjV2GxZSWN0r/1k894+vqeDVokmhu1+OI0uVdgJ4IZ\n6sY/Z0RFAgMBAAECggEAAWFds0UHLnPM6de4+BvmEVcpo+lMhbmQryfZApJfwuQh\n178x144DinE9gdtx7YGDZmcPWGEeiqQOhqORD42zLhFNe7B6O0GQQBmK3zhQWzzV\nPU9DrzY6A/LnoKpVzugg0bz+xxEmIepddPc4uUNWqTD1PCeT8ZrLsaTiCwiEtae8\n89zIdHtKnaLOemfekfriHkTu8o5dJ7UbJtVW/6X/inA7RxKL+p+piQn7XbjLdUB8\nOXlHjLVwbpHctqkWJnPmxyedc5F8YRZe0qORlAg7Jeb2nn0CEQVLYNYVSWS0toQF\nfbgASg0Ww/2nVPnQOYDKO8dw+ebtq7JhLxk1m48JgQKBgQDxmvI2ucVU1EA7PMRn\nYCakEuXpiy96/vFj2P/JsHNdWb45fyJuny8H7WSHV7yEbMH7+2ggWGV1YNpRX2VL\nEbE6vXO9hLVFgKYrIZ5GJdfe8kRzAxI0tbzbRmuTkMkjcUgpNdhm5Z+gdmf8P6Z2\nLRAmI60DaFjt4tiO2TEN0Nz2gQKBgQDKt4VrfFT+FXPDtR6LluIDQ1Tgxn//QJGt\ndLPMv9atY3MUvNNmSeVxckaZPpZYUckkK2+5OY5iuHjVVMwVmm3qp07GaBoKyOwb\ntePEd7v57zkoMILYFDs2JfOjy6T2L0bH/gjWqlVeAgPWfir7IBmGnoTNLTeht0LV\nRAgZyhITxQKBgQCJ5EExcr1pOOqf5ILD7WCgbBjEPigPLspejk8OsaJmOP4Umrbw\nI/IXuCmUBUMW4WulgUtgipL9dxWjM6sAOUzJla8lD0TWMiKkoz9OEfMuz165tZsC\ncmcjTwG+6vehPtpMiurDb3K3hly63ykGcZmx6tKoCzoWK04l2Vfh5r72AQKBgQC8\nbGEDS4nksiPsYUmHDjP+PHOEin0m0OmXhMYrJpVwjOPG/sywYzd1f3bHsjkk1sBT\nclximnESqc0G3c7ktao9Vk4OdWzfYWq1Rxfy4ihDZGyIQq8cEZIH/ra8JOmsOr1b\n33Bvt9upic3vbU6eJXQUgPuHiuQO2LyyZo3xCrZK0QKBgQCWnrg+YeXu2rvs7SAd\nt2poHssAnObGzIwsoInZxmwlZEKGmawp5aD2Ql5eFsyXVW9mJiUNrcoUL0LvfLkM\nX4MHnx42dOFng3ZQJtXCB1vp6koZhGnJl5AImpQF/rgdFnJKQavyw0Fz4zJvJj5n\nKlLZ8Oa/E/Q2Y/PA/sZKY53y0w==\n-----END PRIVATE KEY-----\n",
+  "client_email": "imagekit-integration@photo-gallery-349307.iam.gserviceaccount.com",
+  "client_id": "109634076535473802090",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/imagekit-integration%40photo-gallery-349307.iam.gserviceaccount.com"
+}

@@ -1,0 +1,55 @@
+---
+import MainHead from "../components/MainHead.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import GalleryCard from "../components/GalleryCard.astro";
+import Photos from "../services/Photos";
+import type { Gallery } from "../types";
+
+// TODO: fetch galleries from S3 bucket
+const galleries: Gallery[] = await Photos.getGalleries();
+console.log("🚀 ~ file: index.astro ~ line 10 ~ galleries", galleries);
+---
+
+<html lang="en">
+  <head>
+    <MainHead title="Photos" description="Photo galleries" />
+  </head>
+  <body>
+    <Nav />
+    <div class="wrapper">
+      <div class="grid">
+        {
+          galleries?.map(({ folder, cover, caption }) => (
+            <GalleryCard
+              src={cover}
+              caption={caption || folder}
+              folder={folder}
+            />
+          ))
+        }
+      </div>
+    </div>
+    <Footer />
+    <style>
+      .wrapper {
+        min-height: 100vh;
+        padding: 4rem 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f2f2f2;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 340px);
+        grid-gap: 1rem;
+        width: 100%;
+        max-width: calc(3 * 340px + 2rem); /* Includes 2 x gutter */
+      }
+    </style>
+  </body>
+</html>

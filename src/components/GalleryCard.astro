@@ -1,0 +1,47 @@
+---
+import Image from "../components/Image.astro";
+
+// interface CardProps {
+//   src: string;
+//   folder: string;
+//   caption?: string;
+//   galleryId?: string;
+// }
+
+const { src, folder, caption = "No caption provided" } = Astro.props;
+---
+
+<div class="card">
+  <a href={`/gallery/${folder}`}>
+    <div class="image-wrapper">
+      <Image src={src} alt={caption} width={340} />
+      <div class="caption">{caption}</div>
+    </div>
+  </a>
+</div>
+
+<style>
+  .card {
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .card:hover {
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.16);
+  }
+
+  .image-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .caption {
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+</style>
