@@ -1,0 +1,45 @@
+---
+import type { Breadcrumb } from "../types";
+
+const { breadcrumbs } = Astro.props;
+---
+
+<div class="breadcrumbs">
+  {
+    breadcrumbs.map(({ name, url }: Breadcrumb, index: number) => (
+      <>
+        <a class="link" href={url}>
+          {name}
+        </a>
+        <span class="divider">/</span>
+      </>
+    ))
+  }
+</div>
+
+<style>
+  .breadcrumbs {
+    display: flex;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    padding: 0 8px;
+  }
+
+  .divider:last-of-type {
+    display: none;
+  }
+
+  .link {
+    color: var(--color-text-muted);
+    display: block;
+  }
+
+  .link:hover,
+  .link:focus {
+    color: #262626;
+    text-decoration: underline;
+  }
+</style>

@@ -1,8 +1,19 @@
+---
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import type { Breadcrumb } from "../types";
+
+interface NavProps {
+  breadcrumbs?: Breadcrumb[];
+}
+
+const { breadcrumbs } = Astro.props as NavProps;
+---
+
 <nav>
   <a class="link" href="/">
     <div class="monogram">MF</div>
   </a>
-  <a class="link" href="/">Photos</a>
+  <Breadcrumbs breadcrumbs={breadcrumbs} />
 </nav>
 
 <style>
@@ -29,7 +40,6 @@
     color: var(--color-text-muted);
     display: block;
     text-decoration: none;
-    font-size: var(--f-d1);
     text-transform: uppercase;
     padding-top: 0.75em;
     padding-bottom: 0.75em;

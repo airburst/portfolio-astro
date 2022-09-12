@@ -15,7 +15,7 @@ const galleries: Gallery[] = await Photos.getGalleries();
     <MainHead title="Photos" description="Photo galleries" />
   </head>
   <body>
-    <Nav />
+    <Nav breadcrumbs={[{ name: "photos", url: "/" }]} />
     <div class="wrapper">
       <div class="grid">
         {
