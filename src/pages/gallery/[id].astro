@@ -4,6 +4,13 @@ import Footer from "../../components/Footer.astro";
 import Nav from "../../components/Nav.astro";
 import Image from "../../components/Image.astro";
 import Photos from "../../services/Photos";
+import type { Gallery } from "../../types";
+
+//  Pre-render id paths at build time
+export async function getStaticPaths() {
+  const galleries: Gallery[] = await Photos.getGalleries();
+  return galleries.map(({ folder }) => ({ params: { id: folder } }));
+}
 
 const { id } = Astro.params;
 const photos = await Photos.getPhotos(id as string);
