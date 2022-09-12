@@ -32,22 +32,20 @@ const galleries: Gallery[] = await Photos.getGalleries();
     <Footer />
     <style>
       .wrapper {
-        min-height: 100vh;
-        padding: 4rem 0;
-        flex: 1;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        padding: 4rem 0;
         background-color: #f2f2f2;
       }
 
       .grid {
         display: grid;
-        grid-template-columns: repeat(3, 340px);
-        grid-gap: 1rem;
-        width: 100%;
-        max-width: calc(3 * 340px + 2rem); /* Includes 2 x gutter */
+        grid-template-columns: repeat(auto-fill, 320px);
+        grid-auto-rows: 10px;
+        grid-column-gap: 1rem;
+        width: 80vw;
+        justify-content: center;
       }
     </style>
   </body>

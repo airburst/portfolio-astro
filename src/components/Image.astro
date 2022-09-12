@@ -4,6 +4,7 @@ const IMAGE_KIT_URL = "https://ik.imagekit.io/mfimages";
 type ImageProps = {
   src: string;
   width?: number;
+  height?: number;
   quality?: number;
   alt?: string;
 };
@@ -19,8 +20,23 @@ const getImageKitUrl = ({ src, width, quality }: ImageProps) => {
   return `${IMAGE_KIT_URL}/${src}?tr=${paramsString}`;
 };
 
-const { src, width, quality } = Astro.props;
+const { src, width, height, quality, alt } = Astro.props as ImageProps;
 const ikUrl = getImageKitUrl({ src, width, quality });
 ---
 
-<img src={ikUrl} width={width} />
+<img
+  class="gallery"
+  src={ikUrl}
+  width={`${width}px`}
+  max-width="100%"
+  height={`${height}px`}
+  alt={alt}
+/>
+
+<style>
+  img.gallery {
+    background-color: var(--color-text-muted);
+    object-fit: cover;
+    /* border-radius: 5px; */
+  }
+</style>

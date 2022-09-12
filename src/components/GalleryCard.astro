@@ -1,20 +1,24 @@
 ---
 import Image from "../components/Image.astro";
 
-// interface CardProps {
-//   src: string;
-//   folder: string;
-//   caption?: string;
-//   galleryId?: string;
-// }
+interface CardProps {
+  src: string;
+  folder: string;
+  caption?: string;
+  galleryId?: string;
+}
 
-const { src, folder, caption = "No caption provided" } = Astro.props;
+const {
+  src,
+  folder,
+  caption = "No caption provided",
+} = Astro.props as CardProps;
 ---
 
 <div class="card">
   <a href={`/gallery/${folder}`}>
     <div class="image-wrapper">
-      <Image src={src} alt={caption} width={340} />
+      <Image src={src} alt={caption} width={320} height={200} />
       <div class="caption">{caption}</div>
     </div>
   </a>
@@ -22,24 +26,29 @@ const { src, folder, caption = "No caption provided" } = Astro.props;
 
 <style>
   .card {
+    grid-row-end: span 27;
     background: #fff;
     cursor: pointer;
     box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    /* padding: 8px; */
+    /* border-radius: 5px; */
   }
 
   .card:hover {
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.24);
   }
 
   .image-wrapper {
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
 
   .caption {
     display: flex;
     align-items: center;
-    height: 3rem;
+    height: 100%;
     padding: 0.5rem;
     text-transform: uppercase;
     color: var(--color-text-muted);
