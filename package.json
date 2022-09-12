@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "serve": "npx serve dist"
+    "serve": "npx serve dist",
+    "deploy": "astro build && firebase deploy"
   },
   "dependencies": {
     "@astrojs/react": "^1.1.2",
