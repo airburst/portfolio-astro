@@ -1,7 +1,7 @@
 ---
 import type { Breadcrumb } from "../types";
 
-const { breadcrumbs } = Astro.props;
+const { breadcrumbs = [] } = Astro.props;
 ---
 
 <div class="breadcrumbs">
