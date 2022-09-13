@@ -1,5 +1,7 @@
 ---
 const IMAGE_KIT_URL = "https://ik.imagekit.io/mfimages";
+const EMPTY_IMAGE =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
 
 type ImageProps = {
   src: string;
@@ -7,11 +9,15 @@ type ImageProps = {
   height?: number;
   quality?: number;
   alt?: string;
+  lazy?: boolean;
 };
 
 const getImageKitUrl = ({ src, width, quality }: ImageProps) => {
   if (src[0] === "/") src = src.slice(1);
-  const params = [`w-${width}`];
+  const params = [];
+  if (width) {
+    params.push([`w-${width}`]);
+  }
   if (quality) {
     params.push(`q-${quality}`);
   }
@@ -20,13 +26,14 @@ const getImageKitUrl = ({ src, width, quality }: ImageProps) => {
   return `${IMAGE_KIT_URL}/${src}?tr=${paramsString}`;
 };
 
-const { src, width, height, quality, alt } = Astro.props as ImageProps;
+const { src, width, height, quality, alt, lazy } = Astro.props as ImageProps;
 const ikUrl = getImageKitUrl({ src, width, quality });
 ---
 
 <img
   class="gallery"
-  src={ikUrl}
+  src={lazy ? EMPTY_IMAGE : ikUrl}
+  data-src={ikUrl}
   width={`${width}px`}
   max-width="100%"
   height={`${height}px`}

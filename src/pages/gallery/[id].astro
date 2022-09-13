@@ -4,6 +4,7 @@ import Footer from "../../components/Footer.astro";
 import Nav from "../../components/Nav.astro";
 import Image from "../../components/Image.astro";
 import Photos from "../../services/Photos";
+import lazyLoadImages from "../../services/lazyLoadImages";
 import type { Gallery } from "../../types";
 
 //  Pre-render id paths at build time
@@ -32,7 +33,7 @@ const photos = await Photos.getPhotos(id as string);
       <div class="gallery-grid">
         {
           photos?.map((shortUrl: string) => (
-            <Image src={shortUrl} alt={shortUrl} width={400} />
+            <Image src={shortUrl} alt={shortUrl} width={400} lazy />
           ))
         }
       </div>
@@ -65,3 +66,5 @@ const photos = await Photos.getPhotos(id as string);
     </style>
   </body>
 </html>
+
+<script src="../../scripts/lazy-load-images.js"></script>
