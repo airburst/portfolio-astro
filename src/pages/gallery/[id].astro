@@ -4,7 +4,6 @@ import Footer from "../../components/Footer.astro";
 import Nav from "../../components/Nav.astro";
 import Image from "../../components/Image.astro";
 import Photos from "../../services/Photos";
-import lazyLoadImages from "../../services/lazyLoadImages";
 import type { Gallery } from "../../types";
 
 //  Pre-render id paths at build time
@@ -13,6 +12,7 @@ export async function getStaticPaths() {
   return galleries.map(({ folder }) => ({ params: { id: folder } }));
 }
 
+const IMAGE_SIZE = 380;
 const { id } = Astro.params;
 const photos = await Photos.getPhotos(id as string);
 ---
@@ -29,31 +29,42 @@ const photos = await Photos.getPhotos(id as string);
       ]}
     />
     <div class="gallery-wrapper">
-      <!-- <h1 class="heading">{id}</h1> -->
       <div class="gallery-grid">
         {
           photos?.map((shortUrl: string) => (
-            <Image src={shortUrl} alt={shortUrl} width={400} lazy />
+            <Image
+              src={shortUrl}
+              alt={shortUrl}
+              width={IMAGE_SIZE}
+              height={IMAGE_SIZE}
+              lazy
+            />
           ))
         }
       </div>
     </div>
     <Footer />
     <style>
+      :root {
+        --image-size: 380px; /* Make this the same as IMAGE_SIZE */
+      }
+
       .gallery-wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        width: 100%;
         background-color: #f2f2f2;
+        padding-top: 32px;
       }
 
-      .grid {
+      .gallery-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, 400px);
-        grid-auto-rows: 10px;
-        grid-column-gap: 1rem;
-        width: 100vw;
+        grid-template-columns: repeat(auto-fill, var(--image-size));
+        grid-auto-rows: var(--image-size);
+        grid-gap: 0.5em;
+        width: 100%;
         justify-content: center;
       }
 
