@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const images = Array.from(document.querySelectorAll("img.gallery"));
+  const images = Array.from(document.querySelectorAll("img"));
 
   const imageObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

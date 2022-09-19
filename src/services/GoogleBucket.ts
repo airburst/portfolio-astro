@@ -1,5 +1,5 @@
 // Imports the Google Cloud client library
-import { Storage } from "@google-cloud/storage";
+import { Storage, File } from "@google-cloud/storage";
 import type { Gallery } from "../types";
 
 class GoogleBucket {
