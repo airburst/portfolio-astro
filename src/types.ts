@@ -1,7 +1,7 @@
 export type Gallery = {
-  name: string;
   folder: string;
   cover: string;
+  caption?: string;
 };
 
 export type Breadcrumb = {

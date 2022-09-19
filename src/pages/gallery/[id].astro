@@ -4,7 +4,7 @@ import Footer from "../../components/Footer.astro";
 import Nav from "../../components/Nav.astro";
 import Image from "../../components/Image.astro";
 import Photos from "../../services/Photos";
-import type { Gallery } from "../../types";
+import type { Gallery, Photo } from "../../types";
 
 //  Pre-render id paths at build time
 export async function getStaticPaths() {
@@ -15,7 +15,6 @@ export async function getStaticPaths() {
 const IMAGE_SIZE = 380;
 const { id } = Astro.params;
 const photos = await Photos.getPhotos(id as string);
-console.log("🚀 ~ file: [id].astro ~ line 18 ~ photos", photos);
 ---
 
 <html lang="en">
@@ -32,10 +31,10 @@ console.log("🚀 ~ file: [id].astro ~ line 18 ~ photos", photos);
     <div class="gallery-wrapper">
       <div class="gallery-grid">
         {
-          photos?.map((shortUrl: string) => (
+          photos?.map((photo: Photo) => (
             <Image
-              src={shortUrl}
-              alt={shortUrl}
+              src={`${id}/${photo.name}`}
+              alt={photo.name}
               width={IMAGE_SIZE}
               height={IMAGE_SIZE}
               lazy

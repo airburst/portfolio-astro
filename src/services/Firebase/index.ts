@@ -5,11 +5,14 @@ import {
   addDoc,
   getDocs,
   doc,
+  query,
+  orderBy,
 } from "firebase/firestore";
 import type { Photo, Gallery } from "../../types";
 import seedData from "../../../photos.json";
 
 // https://console.firebase.google.com/project/fairhurst-photos/firestore/data
+// https://console.firebase.google.com/project/fairhurst-photos/storage/fairhurst-photos.appspot.com/files
 
 const firebaseConfig = {
   apiKey: "AIzaSyCRxzGYcg9dwy5_X_XNxqHJ_onflR_eO8c",
@@ -35,8 +38,8 @@ class Firebase {
     const galleries: Gallery[] = [];
 
     await querySnapshot.forEach((doc) => {
-      const { folder, cover } = doc.data();
-      galleries.push({ name: doc.id, folder, cover });
+      const { cover, caption } = doc.data();
+      galleries.push({ folder: doc.id, cover, caption });
     });
     return galleries;
   }
@@ -54,9 +57,11 @@ class Firebase {
 
   async getPhotos(gallery: string): Promise<Photo[]> {
     const galleryRef = doc(this.db, `galleries/${gallery}`);
-    const querySnapshot = await getDocs(collection(galleryRef, "photos"));
+    const photosRef = collection(galleryRef, "photos");
+    const q = await query(photosRef, orderBy("dateTaken", "desc"));
     const photos: Photo[] = [];
 
+    const querySnapshot = await getDocs(q);
     await querySnapshot.forEach((doc) => {
       photos.push(doc.data() as Photo);
     });

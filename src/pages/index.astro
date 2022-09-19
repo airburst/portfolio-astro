@@ -6,6 +6,9 @@ import GalleryCard from "../components/GalleryCard.astro";
 import Photos from "../services/Photos";
 import type { Gallery } from "../types";
 
+// import firebase from "../services/Firebase";
+// await firebase.seed();
+
 const galleries: Gallery[] = await Photos.getGalleries();
 ---
 
@@ -18,10 +21,10 @@ const galleries: Gallery[] = await Photos.getGalleries();
     <div class="wrapper">
       <div class="grid">
         {
-          galleries?.map(({ folder, cover, name }) => (
+          galleries?.map(({ folder, cover, caption }) => (
             <GalleryCard
               src={`${folder}/${cover}`}
-              name={name || folder}
+              name={caption || folder}
               folder={folder}
             />
           ))
