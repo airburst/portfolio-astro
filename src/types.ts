@@ -1,12 +1,19 @@
 export type Gallery = {
+  name: string;
   folder: string;
   cover: string;
-  caption?: string | null;
 };
 
 export type Breadcrumb = {
   name: string;
   url: string;
+};
+
+export type Photo = {
+  name: string;
+  width: number;
+  height: number;
+  dateTaken?: string | undefined | null;
 };
 
 type SrcSet = {

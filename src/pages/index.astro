@@ -6,7 +6,6 @@ import GalleryCard from "../components/GalleryCard.astro";
 import Photos from "../services/Photos";
 import type { Gallery } from "../types";
 
-// TODO: fetch galleries from S3 bucket
 const galleries: Gallery[] = await Photos.getGalleries();
 ---
 
@@ -19,10 +18,10 @@ const galleries: Gallery[] = await Photos.getGalleries();
     <div class="wrapper">
       <div class="grid">
         {
-          galleries?.map(({ folder, cover, caption }) => (
+          galleries?.map(({ folder, cover, name }) => (
             <GalleryCard
-              src={cover}
-              caption={caption || folder}
+              src={`${folder}/${cover}`}
+              name={name || folder}
               folder={folder}
             />
           ))

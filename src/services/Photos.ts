@@ -1,20 +1,14 @@
-import GoogleBucket from "./GoogleBucket";
+import firebase from "./Firebase";
 
 class Photos {
-  bucket: any;
-
-  constructor() {
-    this.bucket = new GoogleBucket('fairhurst-photo-gallery');
-  }
-
   getGalleries() {
-    return this.bucket.getGalleries();
+    return firebase.listGalleries();
   }
 
-  async getPhotos(folder: string) {
-    const photos = await this.bucket.listFiles(folder);
+  async getPhotos(gallery: string) {
+    const photos = await firebase.getPhotos(gallery);
 
-    return photos.filter((photo: string) => !photo.endsWith('/') && !photo.endsWith('cover.txt'));
+    return photos;
   }
 }
 

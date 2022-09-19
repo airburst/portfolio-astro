@@ -4,22 +4,18 @@ import Image from "../components/Image.astro";
 interface CardProps {
   src: string;
   folder: string;
-  caption?: string;
+  name?: string;
   galleryId?: string;
 }
 
-const {
-  src,
-  folder,
-  caption = "No caption provided",
-} = Astro.props as CardProps;
+const { src, folder, name = "No name provided" } = Astro.props as CardProps;
 ---
 
 <div class="card">
   <a href={`/gallery/${folder}`}>
     <div class="image-wrapper">
-      <Image src={src} alt={caption} width={320} height={200} lazy />
-      <div class="caption">{caption}</div>
+      <Image src={src} alt={name} width={320} height={200} lazy />
+      <div class="name">{name}</div>
     </div>
   </a>
 </div>
@@ -45,7 +41,7 @@ const {
     height: 100%;
   }
 
-  .caption {
+  .name {
     display: flex;
     align-items: center;
     height: 100%;
