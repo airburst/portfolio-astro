@@ -1,6 +1,6 @@
 {
   "name": "@example/portfolio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -12,21 +12,21 @@
     "deploy": "astro build && firebase deploy"
   },
   "dependencies": {
-    "@astrojs/image": "^0.7.0",
-    "@astrojs/react": "^1.1.2",
-    "@nanostores/react": "^0.4.0",
-    "astro": "^1.2.1",
-    "nanostores": "^0.7.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "@astrojs/image": "^0.7.1",
+    "@astrojs/react": "^1.2.2",
+    "@nanostores/react": "^0.4.1",
+    "astro": "^1.9.2",
+    "nanostores": "^0.7.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-masonry-css": "^1.0.16",
-    "yet-another-react-lightbox": "^2.1.1"
+    "yet-another-react-lightbox": "^2.6.2"
   },
   "devDependencies": {
-    "@google-cloud/storage": "^6.4.2",
+    "@google-cloud/storage": "^6.12.0",
     "@types/google-cloud__storage": "^2.3.1",
-    "@types/react": "^18.0.19",
-    "firebase": "^9.10.0",
-    "firebase-admin": "^11.0.1"
+    "@types/react": "^18.2.21",
+    "firebase": "^9.23.0",
+    "firebase-admin": "^11.10.1"
   }
 }

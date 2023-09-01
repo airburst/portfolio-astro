@@ -1,15 +1,15 @@
 import { initializeApp } from "firebase/app";
 import {
-  getFirestore,
-  collection,
   addDoc,
-  getDocs,
+  collection,
   doc,
-  query,
+  getDocs,
+  getFirestore,
   orderBy,
+  query,
 } from "firebase/firestore";
-import type { Photo, Gallery } from "../../types";
 import seedData from "../../../photos.json";
+import type { Gallery, Photo } from "../../types";
 
 // https://console.firebase.google.com/project/fairhurst-photos/firestore/data
 // https://console.firebase.google.com/project/fairhurst-photos/storage/fairhurst-photos.appspot.com/files
